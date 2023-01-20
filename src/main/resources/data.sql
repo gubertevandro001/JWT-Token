@@ -1,0 +1,1 @@
+INSERT INTO TB_USUARIO (login, senha, nome) VALUES ('evandro','$2a$10$YzzVyHTEttoSdsMz0XNrSeqR8bl61D8MVhi6JOE7CNAQNQTolRTzm', 'evandro')
