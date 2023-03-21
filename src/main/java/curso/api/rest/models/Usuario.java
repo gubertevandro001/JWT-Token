@@ -8,6 +8,8 @@ import java.util.Objects;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
@@ -106,37 +108,39 @@ public class Usuario implements UserDetails {
 		return Objects.equals(id, other.id);
 	}
 
+	@JsonIgnore
 	/*Autorizações, são os acessos do usuário, ROLE_GERENTE, ROLE_ADMIN...*/
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return roles;
 	}
-
+	@JsonIgnore
 	@Override
 	public String getPassword() {
 		return this.senha;
 	}
-
+	@JsonIgnore
 	@Override
 	public String getUsername() {
 		return this.login;
 	}
-
+	@JsonIgnore
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
-
+	@JsonIgnore
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
-
+	@JsonIgnore
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
+	@JsonIgnore
 	@Override
 	public boolean isEnabled() {
 		return true;
